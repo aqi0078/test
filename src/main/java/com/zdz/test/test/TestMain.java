@@ -16,9 +16,6 @@ public class TestMain {
 
     public static void main(String[] args) {
 
-        testService.Tes.putData("2","2");
-        System.out.println(testService.Tes.getBank());
-        System.out.println(testService.Tes.getBank());
 
 //        List<String> list=new ArrayList<>();
 //        list.add("11");

@@ -11,7 +11,8 @@ public class MailController {
     public String mail(){
 
         Mail mail=new Mail();
-        mail.send("@qq.com","cs","123AbC测试");
+        mail.send("dezhi.zhang@quantgroup.cn","cs","123AbC测试");
+        mail.send("584638114@qq.com","cs","123AbC测试");
         return "hello------";
     }
 }

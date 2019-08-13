@@ -16,6 +16,10 @@ public class Mail {
     private int gePort=25;
     private String gePassword="33502f3343982455";//33502f3343982455
 
+//    private String geUsername="monitor.postloan@quantgroup.cn";
+//    private String geHost="mail.quantgroup.cn";
+//    private int gePort=587;
+//    private String gePassword="GftVER4v!7448Dk%";//33502f3343982455
 
 
     public JavaMailSender mailSender(){
@@ -41,6 +45,8 @@ public class Mail {
         MimeMessageHelper messageHelper = new MimeMessageHelper(mailMessage);
         try {
             //设置收件人，寄件人\
+            System.out.println("to :"+to);
+            System.out.println("from  :"+sender.getUsername());
             messageHelper.setTo(to);
             messageHelper.setFrom(sender.getUsername());
             messageHelper.setSubject(subject);

@@ -36,4 +36,10 @@ public class HelloController {
         helloService.getSomeWherePage("1",null);
         return "hello------";
     }
+    @RequestMapping("/some")
+    public String some(){
+        helloService.getSomeWhere();
+        return "hello------";
+    }
+
 }

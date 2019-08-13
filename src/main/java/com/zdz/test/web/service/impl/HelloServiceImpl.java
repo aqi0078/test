@@ -74,6 +74,12 @@ public class HelloServiceImpl implements HelloService {
         }
     }
 
+    /**
+     * 动态sql➕分页
+     * @param name
+     * @param id
+     */
+
     @Override
     public void getSomeWherePage(String name, Integer id) {
         Pageable pageable = PageRequest.of(1, 2);
@@ -98,4 +104,46 @@ public class HelloServiceImpl implements HelloService {
             System.out.println(users);
         }
     }
+
+    /**
+     * 多添件连接，or,等复杂连接
+     */
+
+    @Override
+    public void getSomeWhere(){
+        Specification<Info> specification=new Specification<Info>() {
+            @Override
+            public Predicate toPredicate(Root<Info> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
+                Predicate predicate1=criteriaBuilder.equal(root.get("id"),1);
+                Predicate predicate2=criteriaBuilder.equal(root.get("name"),"1");
+                return criteriaBuilder.and(predicate1,predicate2);
+            }
+        };
+        List<Info> list =helloRepository.findAll(specification);
+        for (Info users : list) {
+            System.out.println(users);
+        }
+        System.out.println("+==================");
+        Specification<Info> specification1=new Specification<Info>() {
+            @Override
+            public Predicate toPredicate(Root<Info> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
+                Predicate predicate1=criteriaBuilder.equal(root.get("id"),1);
+                Predicate predicate2=criteriaBuilder.equal(root.get("name"),"1");
+                return criteriaBuilder.or(predicate1,predicate2);
+            }
+        };
+        List<Info> list1 =helloRepository.findAll(specification1);
+        for (Info users : list1) {
+            System.out.println(users);
+        }
+//        1 and 2,也可以 or
+//        helloRepository.findAll(Specification.where(specification).and(specification1));
+    }
+
+
+
+
+
+
+
 }

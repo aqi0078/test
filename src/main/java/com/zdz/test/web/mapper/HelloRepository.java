@@ -25,5 +25,7 @@ public interface HelloRepository extends JpaRepository<Info, Long> , JpaSpecific
     @Query(value = "update info set name=?1 where id=?2  ", nativeQuery = true)
     void updateName(String name,Long id);
 
+    @Query(nativeQuery = true,value = "select i.name,i.id,tp.pay_order_no as payOrderNo from  info i join third_party_pay_order tp on i.id=tp.id")
+    List<Object[]> findJoin();
 
 }

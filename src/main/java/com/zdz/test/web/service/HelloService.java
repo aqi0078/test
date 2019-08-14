@@ -20,4 +20,9 @@ public interface HelloService {
      * 多添件连接，or,等复杂连接
      */
     public void getSomeWhere();
+
+    /**
+     * 表连接
+     */
+    void join();
 }

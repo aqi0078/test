@@ -17,7 +17,8 @@ public class TestMain {
 
 
     public static void main(String[] args) {
-
+        Object obj=null;
+        System.out.println(Long.valueOf(String.valueOf(obj)));
 
 
     }

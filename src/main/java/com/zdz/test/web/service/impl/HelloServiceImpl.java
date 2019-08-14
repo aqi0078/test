@@ -9,11 +9,13 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,8 +27,40 @@ public class HelloServiceImpl implements HelloService {
     public void sayHi() {
         Info info=helloRepository.findByIdEquals(1L);
         System.out.println("====say hi====="+info.getName());
+
+
     }
 
+    @Override
+    public void join(){
+        List<Object[]> joinList=helloRepository.findJoin();
+        for (int i = 0; i < joinList.size(); i++) {
+            Object[] obj=joinList.get(i);
+            System.out.println("----"+obj[0]);
+        }
+    }
+    //转换实体类
+    public static <T> List<T> castEntity(List<Object[]> list, Class<T> clazz) throws Exception {
+        List<T> returnList = new ArrayList<T>();
+        if(CollectionUtils.isEmpty(list)){
+            return returnList;
+        }
+        Object[] co = list.get(0);
+        Class[] c2 = new Class[co.length];
+        //确定构造方法
+        for (int i = 0; i < co.length; i++) {
+            if(co[i]!=null){
+                c2[i] = co[i].getClass();
+            }else {
+                c2[i]=String.class;
+            }
+        }
+        for (Object[] o : list) {
+            Constructor<T> constructor = clazz.getConstructor(c2);
+            returnList.add(constructor.newInstance(o));
+        }
+        return returnList;
+    }
     @Override
     public void findList(){
         List<Long> ids=new ArrayList<>();

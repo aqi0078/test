@@ -9,6 +9,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 @Slf4j
@@ -33,6 +34,23 @@ public class TargetAspect {
         Object[] arrays=joinPoint.getArgs();
         TargetBean targetBean= (TargetBean) arrays[0];
 
+        Field[] fields =arrays[0].getClass().getDeclaredFields();
+
+        
+        for (Field field : fields) {
+            field.setAccessible( true );
+            if(field.isAnnotationPresent(FieldTarget.class)){
+                FieldTarget fieldTarget=field.getAnnotation(FieldTarget.class);
+                String str=fieldTarget.value();
+                log.info("==str===="+str);
+                field.getName();
+                log.info("==field.getName()===="+field.getName());
+                field.get(targetBean);
+                log.info("==str===="+field.get(targetBean));
+            }
+        }
+
+        
         Object obj = null;
         obj = joinPoint.proceed();
         log.info("======注解方法结束====");

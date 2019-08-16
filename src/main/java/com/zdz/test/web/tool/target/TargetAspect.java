@@ -36,7 +36,7 @@ public class TargetAspect {
 
         Field[] fields =arrays[0].getClass().getDeclaredFields();
 
-        
+
         for (Field field : fields) {
             field.setAccessible( true );
             if(field.isAnnotationPresent(FieldTarget.class)){
@@ -46,7 +46,7 @@ public class TargetAspect {
                 field.getName();
                 log.info("==field.getName()===="+field.getName());
                 field.get(targetBean);
-                log.info("==str===="+field.get(targetBean));
+                log.info("==str= ==="+field.get(targetBean));
             }
         }
 

@@ -12,7 +12,8 @@ public class TargetServiceImpl implements TargetService {
 
     @Override
     @TestLock(value ="value")
-    public void test(TargetBean targetBean){
+    public String test(TargetBean targetBean){
         System.out.println("====targetService====");
+        return targetBean.getData();
     }
 }

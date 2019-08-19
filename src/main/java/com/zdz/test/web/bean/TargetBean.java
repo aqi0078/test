@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 public class TargetBean {
 
-    @FieldTarget("啦啦啦")
+    @FieldTarget(value="啦啦啦",format="\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*")
     private String data;
     private  Long id;
 }

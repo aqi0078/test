@@ -14,7 +14,10 @@ public class TargetController {
     @RequestMapping("/target")
     public String target(){
         TargetBean targetBean=new TargetBean();
-        targetService.test(targetBean);
-        return "succ";
+        targetBean.setData("lulu");
+//        String str=targetService.test(targetBean);
+        targetBean.setData("lulu@qq.com");
+        String str= targetService.test(targetBean);
+        return str;
     }
 }

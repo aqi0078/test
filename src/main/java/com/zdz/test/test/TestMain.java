@@ -9,6 +9,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author zhangdezhi
@@ -17,11 +19,19 @@ public class TestMain {
 
 
     public static void main(String[] args) {
-        Object obj=null;
-        System.out.println(Long.valueOf(String.valueOf(obj)));
+        boolean isTrue=isNumber("\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*","123@qq.com");
 
+        System.out.println(isTrue);
 
     }
+
+
+    public static boolean isNumber(String regex, String orginal) {
+        Pattern pattern = Pattern.compile(regex);
+        Matcher isNum = pattern.matcher(orginal);
+        return isNum.matches();
+    }
+
     public static void main1q1(){
 
 

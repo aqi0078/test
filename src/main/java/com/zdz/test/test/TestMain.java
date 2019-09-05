@@ -1,6 +1,7 @@
 package com.zdz.test.test;
 
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -19,10 +20,19 @@ public class TestMain {
 
 
     public static void main(String[] args) {
-        boolean isTrue=isNumber("\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*","123@qq.com");
 
-        System.out.println(isTrue);
+        BigDecimal b1=new BigDecimal("1");
+        BigDecimal b2=new BigDecimal("2");
+        BigDecimal b3=new BigDecimal("0.3");
+        System.out.println(b1.add(b2).multiply(b3));
+        System.out.println("1".equals(null));
 
+
+//        boolean isTrue=isNumber("\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*","123@qq.com");
+//
+//        System.out.println(isTrue);
+//        String time = new SimpleDateFormat("yyyyMMdd").format(new Date());
+//        System.out.println(time);
     }
 
 

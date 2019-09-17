@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -28,4 +29,11 @@ public interface HelloRepository extends JpaRepository<Info, Long> , JpaSpecific
     @Query(nativeQuery = true,value = "select i.name,i.id,tp.pay_order_no as payOrderNo from  info i join third_party_pay_order tp on i.id=tp.id")
     List<Object[]> findJoin();
 
+    @Query(nativeQuery = true,
+            value = "INSERT INTO info (id,name,date_time) VALUES " +
+                    "(?1,?2,?3) ON DUPLICATE KEY UPDATE name = name+1"
+//                    "status = CASE WHEN count >= ?5 THEN 2 ELSE 0 END"
+    )
+    @Modifying
+    void addOrUpdate(int id, String name, Date date);
 }

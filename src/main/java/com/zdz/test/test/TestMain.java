@@ -1,5 +1,7 @@
 package com.zdz.test.test;
 
+import com.alibaba.fastjson.JSON;
+
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
@@ -26,7 +28,7 @@ public class TestMain {
         BigDecimal b3=new BigDecimal("0.3");
         System.out.println(b1.add(b2).multiply(b3));
         System.out.println("1".equals(null));
-
+        JSON.toJSON(b3);
 
 //        boolean isTrue=isNumber("\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*","123@qq.com");
 //

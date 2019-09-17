@@ -9,6 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -17,17 +18,20 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service("helloService")
 public class HelloServiceImpl implements HelloService {
     @Autowired
     HelloRepository helloRepository;
+    @Transactional
     @Override
     public void sayHi() {
         Info info=helloRepository.findByIdEquals(1L);
         System.out.println("====say hi====="+info.getName());
-
+        helloRepository.addOrUpdate(4,"000",new Date());
+        System.out.println("====say hi====="+info.getName());
 
     }
 

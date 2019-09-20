@@ -3,6 +3,7 @@ package com.zdz.test.web.service.impl;
 import com.zdz.test.web.bean.Info;
 import com.zdz.test.web.mapper.HelloRepository;
 import com.zdz.test.web.service.HelloService;
+import com.zdz.test.web.tool.aspect.logTrace.LogTrace;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -27,6 +28,8 @@ public class HelloServiceImpl implements HelloService {
     HelloRepository helloRepository;
     @Transactional
     @Override
+
+    @LogTrace
     public void sayHi() {
         Info info=helloRepository.findByIdEquals(1L);
         System.out.println("====say hi====="+info.getName());

@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class HelloJob {
 
-    @Scheduled(cron = "* 0/10 * * * ?")
+    @Scheduled(cron = "0 0/10 * * * ?")
 //    @Scheduled(cron = "0/10 * * * * ?")
 //开启异步执行
     @Async
@@ -26,7 +26,7 @@ public class HelloJob {
         }
         log.info("定时任务1:{}",Thread.currentThread().getName());
     }
-    @Scheduled(cron = "* 0/10 * * * ?")
+    @Scheduled(cron = "0 0/10 * * * ?")
 //    @Scheduled(cron = "0/10 * * * * ?")
 //开启异步执行
     @Async
@@ -38,7 +38,7 @@ public class HelloJob {
         }
         log.info("定时任务2:{}",Thread.currentThread().getName());
     }
-    @Scheduled(cron = "* 0/10 * * * ?")
+    @Scheduled(cron = "0 0/10 * * * ?")
 //    @Scheduled(cron = "0/10 * * * * ?")
 //开启异步执行
     @Async

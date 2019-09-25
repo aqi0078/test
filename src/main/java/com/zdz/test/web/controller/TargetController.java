@@ -20,4 +20,14 @@ public class TargetController {
         String str= targetService.test(targetBean);
         return str;
     }
+    @RequestMapping("/targetAll")
+    public String targetAll(){
+        TargetBean targetBean=new TargetBean();
+        targetBean.setData("lulu");
+//        String str=targetService.test(targetBean);
+        targetBean.setData("lulu@qq.com");
+        targetService.testAll();
+        targetService.testAll1(targetBean);
+        return "Hi~~";
+    }
 }

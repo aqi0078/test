@@ -4,6 +4,7 @@ package com.zdz.test.test.tmp;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,20 +14,34 @@ import java.util.Map;
 public class A {
     public static void main(String[] args) {
 
-        Integer i=0;
-        CardType d=null;
-        int d1=d.ordinal();
-        String str="{\"data\":103118454,\"type\":\"LOAN_SUCCESS\"}";
-        Map<String,String> map=new HashMap<>();
-        map.put("data","103118454");
-        JSONObject json1 = JSONObject.parseObject(str);
-        Long data0 = json1.getObject("data", Long.class);
-        System.out.println(data0);
-        JSONObject json = JSONObject.parseObject(JSON.toJSON(map).toString());
-        Long data = json.getObject("data", Long.class);
-        System.out.println(data);
-        Long data1 = json.getObject("ab", Long.class);
-        System.out.println(data1);
+        String str="money/2999/jibie/2";
+        String[] sb=str.split("\\/");
+        System.out.println(sb.length);
+        System.out.println(sb[1]);
+        System.out.println(sb[3]);
+
+
+
+//        A1 a=new A1();
+//        BigDecimal b=null;
+//        BigDecimal bq=BigDecimal.ZERO;
+//        a.getB().compareTo(bq);
+//
+//
+//        Integer i=0;
+//        CardType d=null;
+//        int d1=d.ordinal();
+//        String str="{\"data\":103118454,\"type\":\"LOAN_SUCCESS\"}";
+//        Map<String,String> map=new HashMap<>();
+//        map.put("data","103118454");
+//        JSONObject json1 = JSONObject.parseObject(str);
+//        Long data0 = json1.getObject("data", Long.class);
+//        System.out.println(data0);
+//        JSONObject json = JSONObject.parseObject(JSON.toJSON(map).toString());
+//        Long data = json.getObject("data", Long.class);
+//        System.out.println(data);
+//        Long data1 = json.getObject("ab", Long.class);
+//        System.out.println(data1);
 //        StringBuilder sbu=new StringBuilder();
 //        StringBuffer stringBuffer=new StringBuffer();
 //        stringBuffer.append(1);

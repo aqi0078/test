@@ -1,9 +1,16 @@
 package com.zdz.test.test.tmp;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import java.math.BigDecimal;
+
 /**
  * @Author: ZhangDeZhi
  * @Date: 2019-09-23
  */
+@Getter
+@Setter
 public class A1 {
 //    static {
 //        System.out.println("A1 static");
@@ -15,6 +22,7 @@ public class A1 {
 //
 //        System.out.println(" ()");
 //    }
+BigDecimal b;
 
 
     public void getA(A1 a1){

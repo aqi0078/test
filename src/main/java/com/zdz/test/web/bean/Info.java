@@ -22,7 +22,8 @@ public class Info {
     private String name;
     @Column(name = "date_time")
     private Date dateTime;
-  
+
+    
 //    @PrePersist
 //    public void prePersist() {
 //        Timestamp timestamp = new Timestamp(System.currentTimeMillis());

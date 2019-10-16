@@ -36,4 +36,8 @@ public interface HelloRepository extends JpaRepository<Info, Long> , JpaSpecific
     )
     @Modifying
     void addOrUpdate(int id, String name, Date date);
+
+    @Modifying
+    @Query(value = "update info set name=?1 where id in(?2)  ", nativeQuery = true)
+    int updateNameList(String name,List<Long> ids);
 }

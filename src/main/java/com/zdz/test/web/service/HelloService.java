@@ -25,4 +25,6 @@ public interface HelloService {
      * 表连接
      */
     void join();
+
+    void updateNameList();
 }

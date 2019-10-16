@@ -28,7 +28,6 @@ public class HelloServiceImpl implements HelloService {
     HelloRepository helloRepository;
     @Transactional
     @Override
-
     @LogTrace
     public void sayHi() {
         Info info=helloRepository.findByIdEquals(1L);
@@ -37,7 +36,18 @@ public class HelloServiceImpl implements HelloService {
         System.out.println("====say hi====="+info.getName());
 
     }
+    @Transactional
+    @Override
+    public void updateNameList(){
+        System.out.println("==updateNameList===");
+        List<Long> ids=new ArrayList<>();
+        ids.add(11L);
+        ids.add(23L);
+        ids.add(33L);
+        int joinList=helloRepository.updateNameList("zdz",ids);
 
+        System.out.println("====="+joinList);
+    }
     @Override
     public void join(){
         List<Object[]> joinList=helloRepository.findJoin();
@@ -134,7 +144,11 @@ public class HelloServiceImpl implements HelloService {
                 if(id!=null) {
                     predicates.add(criteriaBuilder.equal(root.get("id"), id));
                 }
-                return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
+                //1.
+                query.where(criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()])));
+                query.orderBy(criteriaBuilder.asc(root.get("id")),criteriaBuilder.asc(root.get("dateTime")));
+                return query.getRestriction();
+               //2 return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
             }
         };
         Page<Info> p = helloRepository.findAll(authorityQuery,pageable);

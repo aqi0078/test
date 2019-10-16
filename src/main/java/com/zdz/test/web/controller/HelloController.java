@@ -23,6 +23,11 @@ public class HelloController {
         helloService.insert();
         return "hello------";
     }
+    @RequestMapping("/updateNameList")
+    public String updateNameList(){
+        helloService.updateNameList();
+        return "hello------";
+    }
 
     @RequestMapping("/page")
     public String page(){

@@ -20,6 +20,7 @@ public class H {
     public static String main1() {
         String a="";
         try{
+
             a="123";
             return a;
         }finally {

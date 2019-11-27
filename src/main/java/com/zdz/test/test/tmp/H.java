@@ -47,7 +47,7 @@ public class H {
         String ss=map.remove("10");//删数据，并且返回删的那个key的值
         map.get("20");//获取数据
         map.keySet();
-        for (String str:map.keySet()) { 
+        for (String str:map.keySet()) {
             if (str.compareTo("值")==0){
                 System.out.println("你要的key");
             }

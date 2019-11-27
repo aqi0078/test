@@ -9,6 +9,7 @@ import com.zdz.test.web.service.AspectService;
 public class AspectServiceImpl implements AspectService {
     @Override
     public String test(String data){
+        System.out.println("=====--==="+data);
         return data;
     }
 }

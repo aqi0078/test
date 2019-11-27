@@ -11,7 +11,7 @@ public class AspectController {
     @Autowired
     AspectService aspectService;
     @RequestMapping("/aspect")
-    public String aspect(){
-        return aspectService.test("成功");
+    public String aspect(String data){
+        return aspectService.test(data);
     }
 }

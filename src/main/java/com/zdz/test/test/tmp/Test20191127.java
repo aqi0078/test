@@ -251,7 +251,7 @@ public class Test20191127 {
     }    //获取本周第几天  周一为第一天
 
     public static void main(String[] args) throws ParseException {
-
+        System.out.println("8888888888888888888888888888888");
         System.out.println(2-1<2);
         System.out.println(lastDayOfMonthDate());
         System.out.println(getTimesWeekNight());

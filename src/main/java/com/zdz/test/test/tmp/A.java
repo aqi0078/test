@@ -13,7 +13,9 @@ import java.util.Map;
  */
 public class A {
     public static void main(String[] args) {
-
+        A2 a2=null;
+        A1 a=(A1)a2;
+        System.out.println("===="+a);
         String str="money/2999/jibie/2";
         String[] sb=str.split("\\/");
         System.out.println(sb.length);

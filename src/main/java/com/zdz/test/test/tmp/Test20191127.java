@@ -252,34 +252,11 @@ public class Test20191127 {
     }    //获取本周第几天  周一为第一天
 
     public static void main(String[] args) throws ParseException {
-//        System.out.println(getDayOfMonth());
-//        System.out.println("111111111::::"+ BigDecimal.valueOf(5678).divide(BigDecimal.valueOf(10000), 1, BigDecimal.ROUND_DOWN));
-//        System.out.println(2-1<2);
-//        System.out.println(lastDayOfMonthDate());
-//        System.out.println(getTimesWeekNight());
-//        System.out.println(addDay(getTimesWeekNight(),1));
-//        Map<String,String> map=new HashMap<>();
-//        map.put("A","djivnksld");
-//        map.put("B","djivnksld");
-//        map.put("C","djivnksld");
-//        map.put("D","djivnksld");
-//        String str=JSON.toJSONString(map);
-//        System.out.println(str);
-//        Map<String,String> map1=JSON.parseObject(str,Map.class);
-//         System.out.println(map1.get("A"));
-//         int[] arr=new int[15];
-//        arr[1]=1;
-//        int[] ar1r=JSON.parseObject(JSON.toJSONString(arr),int[].class);
-//        System.out.println(ar1r[1]);
 
-//        Date date=new Date();
-//        System.out.println(DateUtils.);
-//        System.out.println(date.getTime());
-//        Random r = new Random();
-//        System.out.println(r.nextInt(20));
-//        System.out.println(r.nextInt(20));
-//        System.out.println(r.nextInt(20));
-
+        System.out.println(2-1<2);
+        System.out.println(lastDayOfMonthDate());
+        System.out.println(getTimesWeekNight());
+        System.out.println(addDay(getTimesWeekNight(),1));
 //        System.out.println(getDayOfWeek());
 //        List<PagePosition> pagePositions=new ArrayList<>();
 //        for (int i = 0; i < 10000; i++) {

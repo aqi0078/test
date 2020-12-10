@@ -1,6 +1,7 @@
 package com.zdz.test.test;
 
 import com.alibaba.fastjson.JSON;
+import com.zdz.test.test.tmp.Test20191127;
 
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -20,20 +21,56 @@ import java.util.regex.Pattern;
  */
 public class TestMain {
 
+    public static long transformMs(String date){
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
+        Date d = Date.from(LocalDateTime.parse(date, dtf).atZone(ZoneId.systemDefault()).toInstant());
+        return d.getTime();
+    }
+    public static String getDate(Date date){
+        SimpleDateFormat formatter  = new SimpleDateFormat("yyyyMMdd");
+        return formatter.format(date);
+    }
 
-    public static void main(String[] args) {
-        int a=0;
-        for (int i=0;i<100;i++){
-            a=a++;
+    Integer[] array=new Integer[100];
+    public Integer getData(int index){
+        if (array.length-1<index){
+            return null;
         }
-        System.out.println("================"+a);
-        BigDecimal b1=new BigDecimal("1");
-        BigDecimal b2=new BigDecimal("2");
-        BigDecimal b3=new BigDecimal("0.3");
-        System.out.println(b1.add(null));
-        System.out.println(b1.add(b2).multiply(b3));
-        System.out.println("1".equals(null));
-        JSON.toJSON(b3);
+        return array[array.length-1-index];
+    }
+    public static void main(String[] args) {
+        int a=2;
+        int b=3;
+
+//        a=a+b;
+//        b=a-b;
+//        a=a-b;
+        a = b + (b = a) * 0;
+        System.out.println(a+"===="+b);
+
+
+        System.out.println("===s==------==");
+        List<String> dataList = new ArrayList<String>(2);
+        dataList.add("11");
+        dataList.get(0);
+        System.out.println("===s===="+dataList);
+        System.out.println(getDate(new Date()));
+//        Test20191127.getStartTime();
+        System.out.println(Test20191127.getStartTime().getTime());
+        System.out.println(Test20191127.getEndTime().getTime());
+//
+//        int a=0;
+//        for (int i=0;i<100;i++){
+//            a=a++;
+//        }
+//        System.out.println("================"+a);
+//        BigDecimal b1=new BigDecimal("1");
+//        BigDecimal b2=new BigDecimal("2");
+//        BigDecimal b3=new BigDecimal("0.3");
+//        System.out.println(b1.add(null));
+//        System.out.println(b1.add(b2).multiply(b3));
+//        System.out.println("1".equals(null));
+//        JSON.toJSON(b3);
 
 //        boolean isTrue=isNumber("\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*","123@qq.com");
 //

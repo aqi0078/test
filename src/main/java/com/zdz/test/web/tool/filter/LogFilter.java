@@ -77,9 +77,11 @@ public class LogFilter  implements Filter {
             }
             if ("GET".equalsIgnoreCase(request.getMethod()) || "DELETE".equalsIgnoreCase(
                     request.getMethod())) {
-                log.info("耗时:{}毫秒, IP:{}, url:{}, method:{}, params:{}, Exception:{}, 返回值:{}",
-                        System.currentTimeMillis() - begin, getIp(request), requestUrl, request.getMethod(),
-                        params, isError, responseBody);
+//                log.info("耗时:{}毫秒, IP:{}, url:{}, method:{}, params:{}, Exception:{}, 返回值:{}",
+//                        System.currentTimeMillis() - begin, getIp(request), requestUrl, request.getMethod(),
+//                        params, isError, responseBody);
+                log.info("耗时:{}毫秒, IP:{}, url:{}",
+                        System.currentTimeMillis() - begin, getIp(request), requestUrl);
             } else {
                 log.info(
                         "耗时:{}毫秒, IP:{}, url:{}, method:{}, contentType:{}, params:{}, Exception:{}, 返回值:{}",

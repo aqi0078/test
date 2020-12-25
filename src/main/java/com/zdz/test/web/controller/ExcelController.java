@@ -89,7 +89,7 @@ public class ExcelController {
             excelWriter.write(walletFeeList, writeSheet4);
             log.info("AccountTaskController download walletFeeList:{}",walletFeeList);
             //现货划转手续费
-            WriteSheet writeSheet5 = EasyExcel.writerSheet(5, "现货划转手续费").head(PayFeeData.class)
+            WriteSheet writeSheet5 = EasyExcel.writerSheet(5, "现货交易手续费").head(PayFeeData.class)
                     .build();
             List<PayFeeData> spotFeeList =  JSON.parseArray(spotFee,PayFeeData.class);
             excelWriter.write(spotFeeList, writeSheet5);

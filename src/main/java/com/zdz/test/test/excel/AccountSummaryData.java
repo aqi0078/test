@@ -22,7 +22,7 @@ public class AccountSummaryData implements Serializable {
     private String currency;
     @ExcelProperty("用户金额")
     private BigDecimal userBalance = BigDecimal.ZERO;
-    @ExcelProperty("系统金额")
+    @ExcelProperty("系统/做市商金额")
     private BigDecimal sysBalance = BigDecimal.ZERO;
 
 }
